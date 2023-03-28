@@ -2,31 +2,29 @@ package br.edu.ifpb.dac.igorsobral.projetojpa.entity;
 
 import java.util.Objects;
 
-import jakarta.persistence.CascadeType;
+import org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration;
+
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
 
 @Entity
-public class Instituicao {
+public class Instituicao{
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	private Integer id;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 	private String nome;
 	private String telefone;
 	private String email;
-
-	@OneToOne(fetch = FetchType.EAGER, cascade = { CascadeType.MERGE })
-	@JoinColumn(name = "CURSO_FK")
-	private Curso cursos;
-
-	public Integer getId() {
+	
+	public Long getId() {
 		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getNome() {
@@ -45,13 +43,7 @@ public class Instituicao {
 		this.telefone = telefone;
 	}
 
-	public Curso getCursos() {
-		return cursos;
-	}
 
-	public void setCursos(Curso cursos) {
-		this.cursos = cursos;
-	}
 
 	public String getEmail() {
 		return email;
@@ -64,12 +56,12 @@ public class Instituicao {
 	@Override
 	public String toString() {
 
-		return "INSTITUIÇÃO: " + nome + " - TELEFONE: " + telefone + " - " + cursos;
+		return "ID: " + id +"INSTITUIÇÃO: " + nome + " - TELEFONE: " + telefone  ;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(cursos, email, nome, telefone);
+		return Objects.hash(email, id, nome, telefone);
 	}
 
 	@Override
@@ -81,8 +73,10 @@ public class Instituicao {
 		if (getClass() != obj.getClass())
 			return false;
 		Instituicao other = (Instituicao) obj;
-		return Objects.equals(cursos, other.cursos) && Objects.equals(email, other.email)
-				&& Objects.equals(nome, other.nome) && Objects.equals(telefone, other.telefone);
+		return Objects.equals(email, other.email) && Objects.equals(id, other.id) && Objects.equals(nome, other.nome)
+				&& Objects.equals(telefone, other.telefone);
 	}
 
+	
+	
 }

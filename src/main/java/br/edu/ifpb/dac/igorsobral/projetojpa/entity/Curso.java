@@ -1,24 +1,41 @@
 package br.edu.ifpb.dac.igorsobral.projetojpa.entity;
 
 import java.util.Objects;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Curso {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	private Integer id;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+	@Column(nullable = false)
 	private String nome;
-	private int cargaHoraria;
-	private int periodos;
-	private double mensalidade;
+	@Column(nullable = false)
+	private Integer cargaHoraria;
+	@Column(nullable = false)
+	private Integer periodos;
+	@Column(nullable = false)
+	private Double mensalidade;
+	
+	@ManyToOne(optional = false)
+	private Instituicao instituicao;
+	
+	
 
-	public int getId() {
+
+	public Long getId() {
 		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getNome() {
@@ -29,39 +46,49 @@ public class Curso {
 		this.nome = nome;
 	}
 
-	public int getCargaHoraria() {
+	public Integer getCargaHoraria() {
 		return cargaHoraria;
 	}
 
-	public void setCargaHoraria(int cargaHoraria) {
+	public void setCargaHoraria(Integer cargaHoraria) {
 		this.cargaHoraria = cargaHoraria;
 	}
 
-	public int getPeriodos() {
+	public Integer getPeriodos() {
 		return periodos;
 	}
 
-	public void setPeriodos(int periodos) {
+	public void setPeriodos(Integer periodos) {
 		this.periodos = periodos;
 	}
 
-	public double getMensalidade() {
+	public Double getMensalidade() {
 		return mensalidade;
 	}
 
-	public void setMensalidade(double mensalidade) {
+	public void setMensalidade(Double mensalidade) {
 		this.mensalidade = mensalidade;
+	}
+	
+	
+
+	public Instituicao getInstituicao() {
+		return instituicao;
+	}
+
+	public void setInstituicao(Instituicao instituicaoId) {
+		this.instituicao = instituicaoId;
 	}
 
 	@Override
 	public String toString() {
-		return "CURSO: " + nome + " - CARGA HORÁRIA: " + cargaHoraria + " - PERIODOS: " + periodos + " - MENSALIDADE: "
-				+ mensalidade;
+		return "ID: "+ id + "CURSO: " + nome + " - CARGA HORÁRIA: " + cargaHoraria + " - PERIODOS: " + periodos + " - MENSALIDADE: "
+				+ mensalidade + "INSTITUIÇÃO: " + instituicao;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(cargaHoraria, mensalidade, nome, periodos);
+		return Objects.hash(cargaHoraria, id, mensalidade, nome, periodos);
 	}
 
 	@Override
@@ -73,9 +100,14 @@ public class Curso {
 		if (getClass() != obj.getClass())
 			return false;
 		Curso other = (Curso) obj;
-		return cargaHoraria == other.cargaHoraria
-				&& Double.doubleToLongBits(mensalidade) == Double.doubleToLongBits(other.mensalidade)
-				&& Objects.equals(nome, other.nome) && periodos == other.periodos;
+		return Objects.equals(cargaHoraria, other.cargaHoraria) && Objects.equals(id, other.id)
+				&& Objects.equals(mensalidade, other.mensalidade) && Objects.equals(nome, other.nome)
+				&& Objects.equals(periodos, other.periodos);
 	}
+
+
+
+
+
 
 }

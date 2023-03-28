@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import br.edu.ifpb.dac.igorsobral.projetojpa.entity.Curso;
 
 
-public interface  CursoDAORepository extends JpaRepository<Curso, Integer>{
+public interface  CursoDAORepository extends JpaRepository<Curso, Long>{
 
+	
 }
