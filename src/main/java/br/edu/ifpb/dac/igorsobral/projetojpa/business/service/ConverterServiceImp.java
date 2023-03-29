@@ -1,15 +1,15 @@
-package br.edu.ifpb.dac.igorsobral.projetojpa.model.service;
+package br.edu.ifpb.dac.igorsobral.projetojpa.business.service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import br.edu.ifpb.dac.igorsobral.projetojpa.dto.CursoDTO;
-import br.edu.ifpb.dac.igorsobral.projetojpa.dto.InstituicaoDTO;
-import br.edu.ifpb.dac.igorsobral.projetojpa.entity.Curso;
-import br.edu.ifpb.dac.igorsobral.projetojpa.entity.Instituicao;
-import br.edu.ifpb.dac.igorsobral.projetojpa.model.service.interf.ConverterService;
+import br.edu.ifpb.dac.igorsobral.projetojpa.business.service.interf.ConverterService;
+import br.edu.ifpb.dac.igorsobral.projetojpa.model.entity.Curso;
+import br.edu.ifpb.dac.igorsobral.projetojpa.model.entity.Instituicao;
+import br.edu.ifpb.dac.igorsobral.projetojpa.presentation.dto.CursoDTO;
+import br.edu.ifpb.dac.igorsobral.projetojpa.presentation.dto.InstituicaoDTO;
 
 @Service
 public class ConverterServiceImp implements ConverterService {

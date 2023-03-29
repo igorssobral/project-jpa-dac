@@ -1,4 +1,4 @@
-package br.edu.ifpb.dac.igorsobral.projetojpa.entity;
+package br.edu.ifpb.dac.igorsobral.projetojpa.model.entity;
 
 import java.util.Objects;
 

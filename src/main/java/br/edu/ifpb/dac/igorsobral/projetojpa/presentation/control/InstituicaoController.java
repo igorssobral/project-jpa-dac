@@ -1,4 +1,4 @@
-package br.edu.ifpb.dac.igorsobral.projetojpa.control;
+package br.edu.ifpb.dac.igorsobral.projetojpa.presentation.control;
 
 import java.util.List;
 
@@ -15,12 +15,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.edu.ifpb.dac.igorsobral.projetojpa.dto.InstituicaoDTO;
-import br.edu.ifpb.dac.igorsobral.projetojpa.entity.Curso;
-import br.edu.ifpb.dac.igorsobral.projetojpa.entity.Instituicao;
-import br.edu.ifpb.dac.igorsobral.projetojpa.model.service.interf.ConverterService;
-import br.edu.ifpb.dac.igorsobral.projetojpa.model.service.interf.CursoService;
-import br.edu.ifpb.dac.igorsobral.projetojpa.model.service.interf.InstituicaoService;
+import br.edu.ifpb.dac.igorsobral.projetojpa.business.service.interf.ConverterService;
+import br.edu.ifpb.dac.igorsobral.projetojpa.business.service.interf.CursoService;
+import br.edu.ifpb.dac.igorsobral.projetojpa.business.service.interf.InstituicaoService;
+import br.edu.ifpb.dac.igorsobral.projetojpa.model.entity.Curso;
+import br.edu.ifpb.dac.igorsobral.projetojpa.model.entity.Instituicao;
+import br.edu.ifpb.dac.igorsobral.projetojpa.presentation.dto.InstituicaoDTO;
 
 
 @RestController

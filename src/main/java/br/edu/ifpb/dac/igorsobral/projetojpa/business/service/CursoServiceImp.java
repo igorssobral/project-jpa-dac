@@ -1,4 +1,4 @@
-package br.edu.ifpb.dac.igorsobral.projetojpa.model.service;
+package br.edu.ifpb.dac.igorsobral.projetojpa.business.service;
 
 import java.util.Iterator;
 import java.util.List;
@@ -10,9 +10,9 @@ import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.ExampleMatcher.StringMatcher;
 import org.springframework.stereotype.Service;
 
-import br.edu.ifpb.dac.igorsobral.projetojpa.dao.CursoDAORepository;
-import br.edu.ifpb.dac.igorsobral.projetojpa.entity.Curso;
-import br.edu.ifpb.dac.igorsobral.projetojpa.model.service.interf.CursoService;
+import br.edu.ifpb.dac.igorsobral.projetojpa.business.service.interf.CursoService;
+import br.edu.ifpb.dac.igorsobral.projetojpa.model.entity.Curso;
+import br.edu.ifpb.dac.igorsobral.projetojpa.model.repository.CursoDAORepository;
 
 
 @Service

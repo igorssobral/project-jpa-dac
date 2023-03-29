@@ -1,8 +1,8 @@
-package br.edu.ifpb.dac.igorsobral.projetojpa.model.service.interf;
+package br.edu.ifpb.dac.igorsobral.projetojpa.business.service.interf;
 
 import java.util.List;
 
-import br.edu.ifpb.dac.igorsobral.projetojpa.entity.Curso;
+import br.edu.ifpb.dac.igorsobral.projetojpa.model.entity.Curso;
 
 public interface CursoService{
 	

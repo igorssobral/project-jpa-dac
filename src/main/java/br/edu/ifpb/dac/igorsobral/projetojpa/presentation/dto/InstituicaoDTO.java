@@ -1,4 +1,4 @@
-package br.edu.ifpb.dac.igorsobral.projetojpa.dto;
+package br.edu.ifpb.dac.igorsobral.projetojpa.presentation.dto;
 
 public class InstituicaoDTO {
 	
