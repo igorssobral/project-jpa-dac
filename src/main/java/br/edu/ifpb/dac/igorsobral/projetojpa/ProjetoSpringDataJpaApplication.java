@@ -1,38 +1,48 @@
 package br.edu.ifpb.dac.igorsobral.projetojpa;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import br.edu.ifpb.dac.igorsobral.projetojpa.business.service.interf.RoleService;
 
 
 
 @SpringBootApplication
 @EnableWebMvc
-public class ProjetoSpringDataJpaApplication implements CommandLineRunner {
+public class ProjetoSpringDataJpaApplication implements WebMvcConfigurer, CommandLineRunner {
 
 //	@Autowired
 //	private InstituicaoController instituicaoController;
 //	@Autowired
 //	private CursoController cursoController;
-
+	
+	@Autowired
+	private RoleService roleService;
+	
 	public static void main(String[] args) {
 		SpringApplication.run(ProjetoSpringDataJpaApplication.class, args);
 	}
 
-	
+	@Override
 	public void addCorsMappings(CorsRegistry registry) {
 		registry
 			.addMapping("/**")
 			.allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH");
 	}
 
-	
-	
 	@Override
 	public void run(String... args) throws Exception {
+		roleService.createDefaultValues();
+	}
+	
+//	@Override
+//	public void run(String... args) throws Exception {
 
 //		Read input = new Read();
 //		boolean loop = false;
@@ -141,5 +151,5 @@ public class ProjetoSpringDataJpaApplication implements CommandLineRunner {
 //		}
 //	}
 
-}
+//}
 }

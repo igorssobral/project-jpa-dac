@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +23,6 @@ import br.edu.ifpb.dac.igorsobral.projetojpa.business.service.interf.Instituicao
 import br.edu.ifpb.dac.igorsobral.projetojpa.model.entity.Curso;
 import br.edu.ifpb.dac.igorsobral.projetojpa.model.entity.Instituicao;
 import br.edu.ifpb.dac.igorsobral.projetojpa.presentation.dto.CursoDTO;
-import jakarta.persistence.EntityNotFoundException;
 
 @RestController
 @RequestMapping("/curso")
@@ -43,7 +42,7 @@ public class CursoController {
 			Instituicao instituicao = instituicaoService.findById(Long.parseLong(cursoDTO.getInstituicaoId()));
 			
 			if(instituicao == null) {
-				return new ResponseEntity(instituicao, HttpStatusCode.valueOf(404));
+				return new ResponseEntity(instituicao, HttpStatus.valueOf(404));
 			}else {
 				curso.setInstituicao(instituicao);
 			curso = cursoService.save(curso);
