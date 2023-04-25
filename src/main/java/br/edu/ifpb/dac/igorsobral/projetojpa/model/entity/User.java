@@ -12,7 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
-import br.edu.ifpb.dac.igorsobral.projetojpa.business.service.interf.UserDetails;
+import org.springframework.security.core.userdetails.UserDetails;
+
 
 @Entity(name="Usuario")
 public class User implements UserDetails{

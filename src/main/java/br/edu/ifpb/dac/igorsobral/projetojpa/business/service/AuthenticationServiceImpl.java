@@ -33,7 +33,6 @@ public class AuthenticationServiceImpl implements AuthenticationService{
 				new UsernamePasswordAuthenticationToken(username, password));
 		
 		User user = userService.findByUsername(username);
-		System.out.println(user);
 		return tokenService.generate(user);
 	}
 	
@@ -42,7 +41,7 @@ public class AuthenticationServiceImpl implements AuthenticationService{
 	@Override
 	public User getLoggedUser() {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		System.out.println(authentication);
+		
 		return  (User) authentication.getPrincipal();
 	}
 	

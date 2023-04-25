@@ -10,9 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 
-
-
-
 @Entity
 public class Curso {
 
@@ -30,6 +27,7 @@ public class Curso {
 	
 	@ManyToOne(optional = false)
 	private Instituicao instituicao;
+	
 	
 	
 
